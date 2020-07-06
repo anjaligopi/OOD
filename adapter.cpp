@@ -34,11 +34,10 @@ class String{
       return obj;
     }
 
-    vector<string> split(char delim) const{
-      vector<string> dest;
+    vector<String> split(const char delim) const{
+      vector<String> dest;
       stringstream ss(s);
       string item;
-      vector<string> elems;
       while (getline(ss, item, delim)) {
          dest.push_back(item);
          // elems.push_back(std::move(item)); // if C++11 (based on comment from @mchiasson)
@@ -52,10 +51,12 @@ int main(){
   cout << outp << endl;
   String obj(outp);
   String _lower = obj.to_lower();
-  vector<string> _split = _lower.split(' ');
+  vector<String> _split = _lower.split(' ');
+  //vector<string> _split = _lower.split(' ');
   cout << "Lower case: " << _lower.s << endl;
   //cout << "Split string: " << _split << endl;
   for(auto &ch : _split){
-    cout << ch  << endl;
+    cout << ch.s  << endl;
   }
 }
+//g++ -std=c++11 adapter.cpp && ./a.out
