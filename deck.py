@@ -14,6 +14,7 @@ class Card:
 
     def __init__(self, face_value:int, suit:Suit):
         self.face_value = face_value
+        # private attrbutes/methods have _ in Python (just Pythonic, not enforced)
         self._suit = suit
         self._available = True
 
