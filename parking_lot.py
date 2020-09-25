@@ -56,28 +56,30 @@ class Size(Enum):
     LARGE = 2
 
 class Vehicle:
+    # leave it as abstract class. AG TODO - make it abstract
+    # cannot create obbjects of Vehicle type, can only create sub-classes (Abstract class definition)
     def __init__(self) -> None:
         self.size_ = Size.LARGE
         self.lic = ""
 
 class Bus(Vehicle):
-    def __init__(self) -> None:
-        self.lic = "KA123"
+    def __init__(self, license:str) -> None:
+        self.lic = license
         self.size_ = Size.LARGE
 
 class Car(Vehicle):
-    def __init__(self) -> None:
-        self.lic = "KA1234"
+    def __init__(self, license:str) -> None:
+        self.lic = license
         self.size_ = Size.NORMAL
 
 class Bike(Vehicle):
-    def __init__(self) -> None:
-        self.lic = "KA1235"
+    def __init__(self, license:str) -> None:
+        self.lic = license
         self.size_ = Size.COMPACT
 
 def main():
     lot = ParkingLot(5, 100)
-    car1 = Car()
+    car1 = Car("KA1234")
     spot:ParkingSpot = lot.find_parking_spot(car1)
     if spot:
         spot.park_vehicle(car1)
@@ -86,7 +88,7 @@ def main():
         print("Sorry, no spot available.")
 
     #bus1 is leaving
-    bus1 = Bus()
+    bus1 = Bus("KA123")
     lot.release_parking_spot(bus1)
     print("spot released!")
 
