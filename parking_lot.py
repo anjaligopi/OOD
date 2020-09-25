@@ -81,6 +81,7 @@ def main():
     lot = ParkingLot(5, 100)
     car1 = Car("KA1234")
     spot:ParkingSpot = lot.find_parking_spot(car1)
+    
     if spot:
         spot.park_vehicle(car1)
         print("Parked succesfully!")
