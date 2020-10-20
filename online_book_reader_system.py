@@ -53,7 +53,7 @@ class Library: # similar to a playlist
             for book_dic in lib:
                 book = Book.from_dict(book_dic)
                 lib_books.append(book)
-                print(book.__str__())
+                print(book)
 
 class User:
     
